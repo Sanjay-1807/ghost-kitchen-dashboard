@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghost Kitchen: Before vs After Dashboard</title>
+<meta name="description" content="Dashboard 1 (current state) versus Dashboard 2 (after the Command Center) for the Ghost Kitchen MRP project.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">GHOST KITCHEN &middot; DASHBOARD 1 vs DASHBOARD 2</p>
+    <h1>What changes when the kitchen can finally see itself</h1>
+    <p class="lede">The same 2,500 orders, before and after the Ghost Kitchen Command Center. <b>Before</b> is Synthetic Dataset 1 (today). <b>After</b> is Synthetic Dataset 2, where only the variables the app would realistically improve were changed, by amounts taken from published case studies.</p>
+    <p style="margin:0 0 16px"><a class="btn" href="../ghost-kitchen-app/" target="_blank" rel="noopener">Open the app prototype &rarr;</a></p>
+    <div class="legend" aria-label="Legend">
+      <span class="key"><i class="sw before"></i>Before &middot; Dataset 1</span>
+      <span class="key"><i class="sw after"></i>After &middot; Dataset 2</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc wrap" aria-label="Sections">
+  <a href="#kpis">KPIs</a><a href="#accuracy">Accuracy</a><a href="#rush">Rush hour</a><a href="#staffing">Staffing</a>
+  <a href="#customers">Customers</a><a href="#refunds">Refunds</a><a href="#profit">Profit</a><a href="#method">How Dataset 2 was built</a>
+</nav>
+
+<main class="wrap">
+
+  <section id="kpis" class="chapter">
+    <p class="num">THE HEADLINE</p>
+    <h2>Six KPIs, before and after</h2>
+    <p class="narrative">Every KPI from our KPI deck moves in the right direction, except profit per order before refunds, which stays the same because prices, menu and channel mix were deliberately left unchanged.</p>
+    <div class="kpi-grid" id="kpiGrid"></div>
+  </section>
+
+  <section id="accuracy" class="chapter">
+    <p class="num">CHAPTER 1</p>
+    <h2>Fewer wrong orders, especially at Flame and Bun</h2>
+    <p class="narrative">The packing Accuracy Checker makes shift leads tick every item before an order leaves. Flame and Bun, the weakest brand, gains the most.</p>
+    <div class="pair" data-chart="brand_accuracy"></div>
+  </section>
+
+  <section id="rush" class="chapter">
+    <p class="num">CHAPTER 2</p>
+    <h2>The rush hour no longer breaks the kitchen</h2>
+    <p class="narrative">Peak hours were where accuracy fell and prep times ran long. With the order hub and staffing alert, both gaps narrow.</p>
+    <div class="pair" data-chart="peak_accuracy"></div>
+    <div class="pair" data-chart="peak_variance"></div>
+  </section>
+
+  <section id="staffing" class="chapter">
+    <p class="num">CHAPTER 3</p>
+    <h2>Same staff hours, moved to where the orders are</h2>
+    <p class="narrative">The Staffing Alert flags any hour above <b>2 orders waiting per staff member</b>. Dataset 2 moves one person from 10:00, 17:00 and 21:00 into 11:00, 13:00 and 20:00, so the total stays at 58 staff hours a day, while faster tickets mean fewer orders pile up.</p>
+    <div class="pair" data-chart="hour_ratio"></div>
+    <div class="pair" data-chart="hour_staff"></div>
+  </section>
+
+  <section id="customers" class="chapter">
+    <p class="num">CHAPTER 4</p>
+    <h2>Customers notice</h2>
+    <p class="narrative">A wrong order costs about 1.7 stars. Fewer wrong orders and shorter delays lift every brand's average rating.</p>
+    <div class="pair" data-chart="brand_rating"></div>
+  </section>
+
+  <section id="refunds" class="chapter">
+    <p class="num">CHAPTER 5</p>
+    <h2>Refunds are cut in half</h2>
+    <p class="narrative">Refunds only happen on wrong orders, so catching mistakes before they leave the kitchen shows up directly as money kept.</p>
+    <div class="pair" data-chart="refund_platform"></div>
+    <div class="pair" data-chart="refund_loss_brand"></div>
+  </section>
+
+  <section id="profit" class="chapter">
+    <p class="num">CHAPTER 6</p>
+    <h2>More profit kept per order</h2>
+    <p class="narrative">Profit after refunds is the order's estimated profit minus any refunded amount. Phone/text orders still earn the most because they pay no commission, which the Profit Tracker makes visible to the owner.</p>
+    <div class="pair" data-chart="profit_after_refunds_platform"></div>
+  </section>
+
+  <section id="method" class="chapter">
+    <p class="num">METHOD</p>
+    <h2>How Dataset 2 was built</h2>
+    <p class="narrative">Dataset 2 keeps the same 2,500 orders, dates, brands, platforms, items and prices as Dataset 1. Only the variables below were changed, and each change is sized from a published source.</p>
+    <div class="table-wrap">
+      <table class="method">
+        <thead><tr><th>App feature</th><th>Variable changed</th><th>Change applied</th><th>Research basis</th></tr></thead>
+        <tbody>
+          <tr><td>Packing Accuracy Checker</td><td>order_accuracy</td><td>40% of wrong orders become correct</td><td>AI smart-scale pilot: bagging mistakes down 40% (<a href="https://prnewswire.com/news-releases/acrelec-launches-double-check-a-breakthrough-ai-powered-smart-scale-for-restaurant-delivery-and-drive-thru-301542288.html" target="_blank" rel="noopener">Acrelec</a>)</td></tr>
+          <tr><td>Packing Accuracy Checker</td><td>refund_issued</td><td>Total refunds down 50%</td><td>Refunds down 50% (<a href="https://prnewswire.com/news-releases/acrelec-launches-double-check-a-breakthrough-ai-powered-smart-scale-for-restaurant-delivery-and-drive-thru-301542288.html" target="_blank" rel="noopener">Acrelec</a>, <a href="https://nexamobility.com/news/ai-scale-driving-order-accuracy-and-cost-savings" target="_blank" rel="noopener">NEXA</a>)</td></tr>
+          <tr><td>Unified Order Hub</td><td>prep_time_variance_minutes, actual_prep_time_minutes</td><td>Prep delay down 20%</td><td>Kitchen display cut ticket times 20% (<a href="https://www.casestudies.com/company/toast/case-study/park-burger-teams-up-with-toast-to-improve-efficiency-and-innovate-on-the-guest-experience" target="_blank" rel="noopener">Toast, Park Burger</a>)</td></tr>
+          <tr><td>Unified Order Hub</td><td>orders_in_queue</td><td>Orders waiting down 20%</td><td>Faster tickets mean fewer orders waiting at the same demand (same Toast case)</td></tr>
+          <tr><td>Peak-Hour Staffing Alert</td><td>staff_on_shift, staffing_ratio</td><td>+1 staff at 11, 13, 20; -1 at 10, 17, 21 (same 58 hours/day)</td><td>Demand-based scheduling: 12% better peak labor efficiency (<a href="https://timeforge.com/?p=39766" target="_blank" rel="noopener">TimeForge</a>)</td></tr>
+          <tr><td>All of the above</td><td>customer_rating</td><td>Recomputed with Dataset 1's rating rules</td><td>Result +0.15 stars, slightly below the +0.2 to +0.3 range Acrelec reports, so the estimate is conservative</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Unchanged on purpose: order volume, brand and platform mix, menu prices, commission rates and food cost. These sources are vendor case studies and pilots, so Dataset 2 is a simulation of plausible impact, not a guarantee.</p>
+    <div class="downloads">
+      <a class="btn" href="data/Ghost_Kitchen_Synthetic_Dataset_1.xlsx" download>Download Dataset 1 (.xlsx)</a>
+      <a class="btn" href="data/Ghost_Kitchen_Synthetic_Dataset_2.xlsx" download>Download Dataset 2 (.xlsx)</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  Ghost Kitchen MRP &middot; Sanjay Gaviriboina, Nithin Reddy Gurram, Haripriya Dommeti, Nithinkumar Kanugula &middot; Synthetic data, 2,500 orders, January to December 2025.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+<script src="js/data.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
