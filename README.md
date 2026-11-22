@@ -20,7 +20,7 @@ Every chart has a "Show data table" link with the exact numbers.
 
 ## How Dataset 2 was built
 
-Dataset 2 is Dataset 1 with only the variables the app would improve changed (see `scripts/make_dataset2.py`):
+Dataset 2 is Dataset 1 with only the variables the app would improve changed (see `make_dataset2.py`):
 
 | Change | Source |
 |---|---|
@@ -47,7 +47,7 @@ The "Open the app prototype" button links to `../ghost-kitchen-app/`, so it work
 ## Rebuild the numbers (optional)
 
 ```
-python scripts/make_dataset2.py data/Ghost_Kitchen_Synthetic_Dataset_1.xlsx dataset2.csv data/Ghost_Kitchen_Synthetic_Dataset_2.xlsx
-python scripts/make_dashboard_data.py data/Ghost_Kitchen_Synthetic_Dataset_1.xlsx dataset2.csv js/data.js
+python make_dataset2.py Ghost_Kitchen_Synthetic_Dataset_1.xlsx dataset2.csv Ghost_Kitchen_Synthetic_Dataset_2.xlsx
+python make_dashboard_data.py Ghost_Kitchen_Synthetic_Dataset_1.xlsx dataset2.csv data.js
 ```
 Requires Python with pandas and openpyxl.
